@@ -13,7 +13,11 @@ class Server {
         //http Server
         this.server = http.createServer(this.app)
         //configuraciones de sockets
-        this.io = socketio(this.server,{/* config del socket server*/})
+        this.io = socketio(this.server,{
+            cors:{
+                origins:['http://localhost:8081/']
+            }
+        })
     }
 
     middlewares(){
